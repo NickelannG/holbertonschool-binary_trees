@@ -13,4 +13,4 @@ Tasks in the C- Binary Trees project for Holberton School Australia cohort 23
 
 ## Contributors
 [Nicole Ann Gorospe](https://github.com/NickelannG)<br>
-Hugh Fagan
+[Hugh Fagan](https://github.com/hugh789)
