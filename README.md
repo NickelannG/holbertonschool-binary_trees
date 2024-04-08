@@ -12,5 +12,5 @@ Tasks in the C- Binary Trees project for Holberton School Australia cohort 23
 - What is a complete, a full, a perfect, a balanced binary tree
 
 ## Contributors
-[Nicole Ann Gorospe](https://github.com/NickelannG)
+[Nicole Ann Gorospe](https://github.com/NickelannG)<br>
 [Hugh Fagan](https://github.com/hugh789)
