@@ -5,7 +5,7 @@
  *
  * @tree: a pointer to the root node of the tree
  *
- * Return: the size, or 0 if tree is NULL
+ * Return: the size, or 0 if tree is NULL, or 1 if tree is the root
  */
 size_t binary_tree_size(const binary_tree_t *tree)
 {
