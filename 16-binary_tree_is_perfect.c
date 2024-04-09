@@ -1,59 +1,24 @@
 #include "binary_trees.h"
 
 /**
- * binary_tree_height - Measure the height oof a binary tree
+ * binary_tree_depth - Measures the deapth of a node in a binary tree
  *
- * @tree: A pointer to the root of the tree
+ * @tree: a pointer to the node
  *
- * Return: The maximum height of the binary tree, or 0 if tree is NULL
+ * Return: the depth, or 0 if tree is NULL
  */
-
-size_t binary_tree_height(const binary_tree_t *tree)
+size_t binary_tree_depth(const binary_tree_t *tree)
 {
-	size_t hleft = 0, hright = 0;
+	size_t depth = 0;
 
-	/* Base case */
-	if (tree == NULL || (tree->left == NULL && tree->right == NULL))
-	{
+	if (tree == NULL || tree->parent == NULL)
 		return (0);
-	}
 
-	hleft = binary_tree_height(tree->left) + 1;
-	hright = binary_tree_height(tree->right) + 1;
+	depth = binary_tree_depth(tree->parent) + 1;
 
-	if (hleft > hright) /* Don't include the root node */
-		return (hleft);
-	else
-		return (hright);
+	return (depth);
 }
 
-#include "binary_trees.h"
-
-/**
- * binary_tree_is_full - checks if a binary tree is full
- *
- * @tree: a pointer ot the root node
- *
- * Return: 1 if its full, or 0 if its not or if tree is NULL
- */
-int binary_tree_is_full(const binary_tree_t *tree)
-{
-	if (tree == NULL)
-		return (0);
-
-	/* Leaf */
-	if (tree->left == NULL && tree->right == NULL)
-		return (1);
-
-	if (tree->left != NULL && tree->right != NULL)
-	{
-		/* Check the subtrees */
-		return (binary_tree_is_full(tree->left) &&
-				binary_tree_is_full(tree->right));
-	}
-	else
-		return (0);
-}
 #include "binary_trees.h"
 
 /**
@@ -65,8 +30,16 @@ int binary_tree_is_full(const binary_tree_t *tree)
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
+
+	int ldepth, rdepth;
+
 	if (tree == NULL)
 		return (0);
+	
+	ldepth = binary_tree_depth(tree->left);
+	rdepth = binary_tree_depth(tree->right);
 
-	if (tree->left == NULL && tree->right == NULL)
-
+	return ((ldepth == rdepth) &&
+		(binary_tree_is_perfect(tree->left)) &&
+		(binary_tree_is_perfect(tree->right)));
+}
