@@ -45,6 +45,9 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	if (ldepth == rdepth && binary_tree_is_perfect(tree->left) &&
 		binary_tree_is_perfect(tree->right) && tree->parent == NULL)
 		return (1);
+	if (ldepth == rdepth && binary_tree_is_perfect(tree->left) &&
+		binary_tree_is_perfect(tree->right))
+		return (1);
 
 	return (0);
 }
